@@ -157,7 +157,7 @@ exec --no-startup-id keynav
 exec --no-startup-id unclutter
 
 # автозапуск
-exec --no-startup-id yandex-disk start
+# exec --no-startup-id yandex-disk start
 
 # теперь дисплей не отключается через 10 минут
 exec --no-startup-id xset -dpms
