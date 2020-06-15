@@ -1,0 +1,32 @@
+/*
+!/.config
+/.config/*
+
+!/.gitignore
+!/.home-conf
+!/.home-scripts
+
+!/.vimrc
+!/.tmux.conf
+!/.zshrc
+!/.bashrc
+!/.rtorrent.rc
+!/.xonshrc
+!/.keynavrc
+
+!/.gnupg
+/.gnupg/*
+!/.gnupg/gpg-agent.conf
+
+!/.config/termite
+!/.config/ranger
+!/.config/dunst
+
+# BEGIN i3conf
+!/.config/i3
+!/.i3blocks.conf
+!/.xbindkeysrc.scm
+!/.i3scripts
+# END i3conf
+
+!/makefile

@@ -1,0 +1,37 @@
+# удаляем старые комбирации
+clear
+
+# запуск
+ctrl+semicolon start
+# способы выхода
+Escape end
+ctrl+bracketleft end
+
+# левый клик
+space warp,click 1,end
+# левый клик [без выхода] (для двойного и тройного клика)
+t warp,click 1
+# левое зажатие [без выхода]
+g drag 1
+# перемещение курсора
+v warp,end
+# правый клик
+h warp,click 3,end
+
+# прыжки
+d cell-select 1x1
+f cell-select 2x1
+j cell-select 1x2
+k cell-select 2x2
+
+# разбиение
+ctrl+h cut-left
+ctrl+j cut-down
+ctrl+k cut-up
+ctrl+l cut-right
+
+# сдвиг
+shift+h move-left
+shift+j move-down
+shift+k move-up
+shift+l move-right

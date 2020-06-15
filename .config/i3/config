@@ -1,0 +1,164 @@
+# главный модификатор и шрифты окон (Alt)
+set $mod Mod1
+font pango:monospace 8
+floating_modifier $mod
+
+# рамка вокруг окон
+new_window 1pixel
+
+# стековый режим по умолчанию + простой title
+workspace_layout tabbed
+title_align center
+for_window [class=".*"] title_format "%class"
+# -----------------------------------------------------------------------------
+# dmenu лаунчер (с поддержкой алиасов, см. папку скриптов)
+bindsym $mod+d exec --no-startup-id ~/.i3scripts/dmenu_aliases
+
+# экран блокировки
+bindsym $mod+o exec i3lock -c 555555
+
+# терминал
+bindsym $mod+Return exec i3-sensible-terminal
+
+# закрыть текущее окно
+bindsym $mod+q kill
+
+# перезапуск i3
+bindsym $mod+Shift+r restart
+
+# переключение между окнами
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# перемещение окон
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# переключение ориентации (при добавлении новых окон)
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+# полноэкранный, стековый, вкладочный и обычный режимы
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# переключение режима для окна (тайловый или плавающий)
+bindsym $mod+Shift+space floating toggle
+# переключение между тайловыми и плавающими окнами
+bindsym $mod+space focus mode_toggle
+
+# перемещение фокуса на родителя
+bindsym $mod+p focus parent
+# перемещение фокуса на потомка
+bindsym $mod+c focus child
+
+# переключение между рабочими столами
+bindsym $mod+n workspace prev
+bindsym $mod+m workspace next
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# перемещение окон между рабочими столами
+bindsym $mod+Shift+n move container to workspace prev
+bindsym $mod+Shift+m move container to workspace next
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# настройки трея
+bar {
+        # для трея используем i3block и отключаем в нем уведомления
+        status_command i3blocks
+        tray_output none
+}
+# -----------------------------------------------------------------------------
+# режим изменения размера окон
+mode "resize" {
+        bindsym h resize shrink width  10 px or 10 ppt
+        bindsym j resize grow   height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow   width  10 px or 10 ppt
+        # выход из режима
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# режим для настройки 2х экранов
+mode "display" {
+	bindsym t exec "xrandr --output eDP1 --mode 1366x768 --pos 0x0 --output VGA1 --mode 1280x1024 --pos 1366x0"
+	bindsym f exec "xrandr --output VGA1 --off"
+        # выход из режима
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+d mode "display"
+# -----------------------------------------------------------------------------
+# PrintScr
+bindsym Print       exec scrot    -e 'xclip -selection clipboard -t "image/png" < $f'
+bindsym Shift+Print exec scrot -u -e 'xclip -selection clipboard -t "image/png" < $f'
+
+# звук (F3, F5, F6)
+bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
+
+# подсветка (F8, F9)
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# -----------------------------------------------------------------------------
+# определенные окна на своих рабочих столах
+assign [class="TelegramDesktop"] 10
+# -----------------------------------------------------------------------------
+# раскладка
+exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scroll,compose:paus
+# exec --no-startup-id setxkbmap -model pc105
+# exec --no-startup-id setxkbmap -layout us,ru
+# exec --no-startup-id setxkbmap -variant ,
+# exec --no-startup-id setxkbmap -option grp:caps_toggle,grp_led:scroll,compose:paus
+
+# анимации и полупрозрачность окон
+# exec --no-startup-id compton
+
+# для отправки уведомлений
+exec --no-startup-id dunst
+
+# фон рабочего стола
+exec --no-startup-id nitrogen --restore
+
+# хоткеи для системного vim стиля
+exec --no-startup-id xbindkeys
+# перезапускать так: pkill xbindkeys && xbindkeys
+
+# хоткеи для управления мышкой
+exec --no-startup-id keynav
+
+# отключение курсора
+exec --no-startup-id unclutter
+
+# автозапуск
+exec --no-startup-id yandex-disk start
+
+# теперь дисплей не отключается через 10 минут
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
