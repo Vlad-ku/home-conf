@@ -64,8 +64,6 @@ mypass() {
 mytg() {
     curl \
         --data-urlencode "value1=$1" \
-        --data-urlencode "value2=$2" \
-        --data-urlencode "value3=$3" \
         "https://maker.ifttt.com/trigger/shell/with/key/bxXRMSLxeTXqTGAqC3flfe" &> /dev/null
 }
 #-------------------------------------------------------------------
