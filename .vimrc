@@ -136,6 +136,10 @@ let g:user_emmet_settings = {
 \   'php' : { 'quote_char': "'" },
 \}
 
+" в режиме вставки, вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
+imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
+imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
+
 " однократное нажатие в нормальном режиме для табуляции
 nnoremap <silent> > >>
 nnoremap <silent> < <<
