@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mute=$(pacmd list-sinks 2> /dev/null | grep "muted:" | head -n 1 | tr -d '[:space:]')
-volume=$(pacmd list-sinks 2> /dev/null | grep "volume:" | grep -o '...%' | head -n 1)
+volume=$(pacmd list-sinks 2> /dev/null | grep "volume:" | grep -o '...%' | head -n 1 | sed 's/ //')
 
 if [[ $mute = "muted:no" ]]
   then mute='on'
@@ -9,6 +9,6 @@ if [[ $mute = "muted:no" ]]
 fi
 
 if [[ -n "$volume" ]]
-    then echo '♪ '$volume' '$mute
+    then echo 'AUDIO '$volume' '$mute
     else echo "AUDIO null"
 fi

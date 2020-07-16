@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-xbacklight 2> /dev/null || echo "LIGHT null"
+echo "LIGHT "$(xbacklight 2> /dev/null || echo "null")
