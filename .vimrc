@@ -140,6 +140,9 @@ let g:user_emmet_settings = {
 imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
 
+" в режиме вставки номер новой заметки zettelkasten
+imap <silent> <C-Z><C-N> <C-R>=MyZetNumbNew()<CR>
+
 " однократное нажатие в нормальном режиме для табуляции
 nnoremap <silent> > >>
 nnoremap <silent> < <<
@@ -164,18 +167,7 @@ let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.jso
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 " ------------------------------------------------------------------
-" BEGIN функция корректного удаления буфера
-function! MyBufferDel()
-    if bufname() =~ 'NERD_tree_'                        " если проводник, просто закрываем
-        bd
-    else                                                " если какой то файл ...
-        if len(getbufinfo({'buflisted':1})) > 1         " если файл не последний, переходим в другой, и закрываем откуда ушли
-            bp
-            bd #
-        else                                            " если это последний файл
-            bd
-        endif
-    endif
-endfunction
-" END функция корректного удаления буфера
+let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
+let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
+let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
 " ------------------------------------------------------------------

@@ -6,6 +6,7 @@
 !/.home-conf
 !/.home-scripts
 
+!/.vim-func
 !/.vimrc
 !/.tmux.conf
 !/.zshrc
