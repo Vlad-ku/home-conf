@@ -108,7 +108,6 @@ map <leader>ne :Explore<CR>
 
 " p - прямое указание открываемого пути
 map <leader>pp :CtrlP<CR>
-" map <leader>pq :ls<CR>:b<space>
 map <leader>pb :CtrlPBuffer<CR>
 map <leader>pf :FZF<CR>
 
@@ -121,11 +120,12 @@ map <leader>gl :Glog<CR>
 " map <leader>ss :mksession! ./.proj.vim<CR>
 " map <leader>sl :source     ./.proj.vim<CR>
 
-" t - работа с вкладками (на самом деле буферами)
+" b - работа с вкладками (на самом деле буферами)
 " map <leader>tr :bp<CR>
 " map <leader>tt :bn<CR>
 " map <leader>td :bp<CR>:bd #<CR>
-map <leader>td :call MyBufferDel()<CR>
+" map <leader>td :call MyBufferDel()<CR>
+map <leader>bb :call MyBufferDel()<CR>
 
 " f - работа с поисковыми движками
 map <leader>ff :CtrlSF<space>
@@ -164,7 +164,7 @@ let g:NERDTreeWinSize = 50                     " NERDtree   - ширина ок�
 let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
 
 let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']
-" ------------------------------------------------------------------
+
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 " ------------------------------------------------------------------
