@@ -28,8 +28,3 @@ bindkey "^[[4~" end-of-line
 # setopt menucomplete
 # zstyle ':completion:*' menu select=1 _complete _ignored _approximate
 #-------------------------------------------------------------------
-
-alias _pi='ssh pi@raspberrypi'
-alias _host1='ssh admin@5.45.69.197'
-alias _host2='ssh admin@5.45.87.244'
-alias _git='cd /mnt/2E083AAA083A70C7/GIT/'

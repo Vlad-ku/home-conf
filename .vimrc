@@ -63,7 +63,7 @@ Plug 'vim-scripts/LargeFile'                            " большие фай�
 Plug 'junegunn/fzf.vim'                                 " fzf поиск
 Plug 'mechatroner/rainbow_csv'                          " tsv файлы
 Plug 'sheerun/vim-polyglot'                             " подсветка языков
-" Plug 'prettier/vim-prettier'                            " автоформатирование кода
+Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами
 
 " Языки
 " Plug 'hail2u/vim-css3-syntax'                           " CSS
@@ -78,6 +78,7 @@ Plug 'sheerun/vim-polyglot'                             " подсветка я�
 " Plug 'posva/vim-vue'                                    " VUE
 " Plug 'maxmellon/vim-jsx-pretty'                         " JSX       (react native)
 
+" Plug 'prettier/vim-prettier'                            " автоформатирование кода
 " Plug 'mhinz/vim-startify'                               " сессии и стартовый экран (видны файлы, открытые в прошлый раз)
 " Plug 'brooth/far.vim'                                   " поиск и замена по нескольким файлам (использую ctrlSF)
 " Plug 'tpope/vim-surround'                               " работа с кавычками, скобками и тегами
@@ -107,7 +108,7 @@ map <leader>ne :Explore<CR>
 
 " p - прямое указание открываемого пути
 map <leader>pp :CtrlP<CR>
-map <leader>pq :ls<CR>:b<space>
+" map <leader>pq :ls<CR>:b<space>
 map <leader>pb :CtrlPBuffer<CR>
 map <leader>pf :FZF<CR>
 
@@ -121,8 +122,8 @@ map <leader>gl :Glog<CR>
 " map <leader>sl :source     ./.proj.vim<CR>
 
 " t - работа с вкладками (на самом деле буферами)
-map <leader>tr :bp<CR>
-map <leader>tt :bn<CR>
+" map <leader>tr :bp<CR>
+" map <leader>tt :bn<CR>
 " map <leader>td :bp<CR>:bd #<CR>
 map <leader>td :call MyBufferDel()<CR>
 
