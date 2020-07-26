@@ -168,6 +168,7 @@ let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.jso
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 " ------------------------------------------------------------------
+" свои скрипты на vimscript
 let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
 let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
 let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
@@ -182,4 +183,11 @@ menu Encoding.cp866        :e ++enc=cp866  ++ff=dos<CR>
 menu Encoding.koi8-r       :e ++enc=koi8-r ++ff=unix<CR>
 menu Encoding.koi8-u       :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
+" ------------------------------------------------------------------
+" при открытии файлов календаря активировать свою подсветку
+au BufNewFile,BufRead *.cal syn keyword GruvboxOrangeBold Пн Вт Ср Чт Пт Сб Вс
+au BufNewFile,BufRead *.cal syn match GruvboxBlueSign  / h /
+au BufNewFile,BufRead *.cal syn match GruvboxGray      / o /
+au BufNewFile,BufRead *.cal syn match GruvboxRedBold   / e /
+au BufNewFile,BufRead *.cal syn match GruvboxGreenBold / a /
 " ------------------------------------------------------------------
