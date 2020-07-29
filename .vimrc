@@ -116,62 +116,33 @@ map <leader>gs :Gstatus<CR><C-w>o
 map <leader>gd :Gdiff HEAD<CR>
 map <leader>gl :Glog<CR>
 
-" s - работа с сессиями
-" map <leader>ss :mksession! ./.proj.vim<CR>
-" map <leader>sl :source     ./.proj.vim<CR>
-
-" b - работа с вкладками (на самом деле буферами)
-" map <leader>tr :bp<CR>
-" map <leader>tt :bn<CR>
-" map <leader>td :bp<CR>:bd #<CR>
-" map <leader>td :call MyBufferDel()<CR>
+" b - вкладки (на самом деле буферы)
 map <leader>bb :call MyBufferDel()<CR>
 
-" f - работа с поисковыми движками
+" f - поисковые движки
 map <leader>ff :CtrlSF<space>
 map <leader>ft :CtrlSFToggle<CR>
 
+" r - запуск кода
+map <leader>rp :!python3 "%"<CR>
+
 " ,, (развернуть emmet команду)
 let g:user_emmet_leader_key=','
-let g:user_emmet_settings = {
-\   'php' : { 'quote_char': "'" },
-\}
 
-" в режиме вставки, вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
+" INSERT вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
 imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
 
-" в режиме вставки номер новой заметки zettelkasten
+" INSERT номер новой заметки zettelkasten
 imap <silent> <C-Z><C-N> <C-R>=MyZetNumbNew()<CR>
 
-" однократное нажатие в нормальном режиме для табуляции
+" NORMAL однократное нажатие для табуляции
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 
-" выделение не сбрасывается в визуальном режиме при табуляции
+" VISUAL выделение не сбрасывается при изменении табуляции
 vnoremap <silent> > >gv
 vnoremap <silent> < <gv
-" ------------------------------------------------------------------
-" доводка плагинов
-
-colorscheme gruvbox                            " gruvbox    - тема
-set background=dark                            " gruvbox    - темный режим
-let g:airline#extensions#tabline#enabled = 1   " airline    - отображать вкладки
-let g:airline_powerline_fonts = 1              " airline    - использовать шрифты powerline
-let g:ctrlp_show_hidden = 1                    " ctrlp      - отображать скрытые файлы
-let g:NERDSpaceDelims = 1                      " commenting - пробел между комментом и данными
-let g:NERDTreeWinSize = 50                     " NERDtree   - ширина окна с деревом
-let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
-
-let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']
-
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-" ------------------------------------------------------------------
-" свои скрипты на vimscript
-let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
-let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
-let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
 " ------------------------------------------------------------------
 " переоткрытие файла в нужной кодировке
 set wildmenu
@@ -183,6 +154,25 @@ menu Encoding.cp866        :e ++enc=cp866  ++ff=dos<CR>
 menu Encoding.koi8-r       :e ++enc=koi8-r ++ff=unix<CR>
 menu Encoding.koi8-u       :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
+" ------------------------------------------------------------------
+" доводка плагинов
+colorscheme gruvbox                            " gruvbox    - тема
+set background=dark                            " gruvbox    - темный режим
+let g:airline#extensions#tabline#enabled = 1   " airline    - отображать вкладки
+let g:airline_powerline_fonts = 1              " airline    - использовать шрифты powerline
+let g:ctrlp_show_hidden = 1                    " ctrlp      - отображать скрытые файлы
+let g:NERDSpaceDelims = 1                      " commenting - пробел между комментом и данными
+let g:NERDTreeWinSize = 50                     " NERDtree   - ширина окна с деревом
+let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
+let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }
+let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+" ------------------------------------------------------------------
+" свои скрипты на vimscript
+let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
+let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
+let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
 " ------------------------------------------------------------------
 " при открытии файлов календаря активировать свою подсветку
 au BufNewFile,BufRead *.cal syn keyword GruvboxOrangeBold Пн Вт Ср Чт Пт Сб Вс
