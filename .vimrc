@@ -125,6 +125,7 @@ map <leader>ft :CtrlSFToggle<CR>
 
 " r - запуск кода
 map <leader>rp :!python3 "%"<CR>
+map <leader>rb :!bash "%"<CR>
 
 " ,, (развернуть emmet команду)
 let g:user_emmet_leader_key=','
