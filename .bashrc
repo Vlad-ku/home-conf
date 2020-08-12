@@ -57,9 +57,7 @@ myunzip() {
     cd ..
 }
 mypass() {
-    # зависимости: [fzf, xclip, pass, python3]
-    # xclip -selection clipboard (копирование в буфер)
-    python3 ~/.i3scripts/mypass.py
+    python3 /mnt/enote/00_FILES/PASS/scripts/mypass.py
 }
 mytg() {
     curl \
