@@ -11,8 +11,8 @@ workspace_layout tabbed
 title_align center
 for_window [class=".*"] title_format "%class"
 # -----------------------------------------------------------------------------
-# dmenu лаунчер (с поддержкой алиасов, см. папку скриптов)
-bindsym $mod+d exec --no-startup-id ~/.i3scripts/dmenu_aliases
+# dmenu лаунчер
+bindsym $mod+d exec --no-startup-id ~/.i3scripts/my_dmenu
 
 # экран блокировки
 bindsym $mod+o exec i3lock -c 555555

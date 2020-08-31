@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-date=$(date '+[%F %R]')
-xdotool type --delay 0 "$date"

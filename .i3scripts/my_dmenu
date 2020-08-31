@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cmd=$(dmenu_path | sort | dmenu)
+
+if [ -n "$cmd" ]; then
+    $cmd
+fi
