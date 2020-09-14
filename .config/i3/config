@@ -141,7 +141,7 @@ exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scr
 # exec --no-startup-id compton
 
 # для отправки уведомлений
-exec --no-startup-id dunst
+# exec --no-startup-id dunst
 
 # фон рабочего стола
 exec --no-startup-id nitrogen --restore
