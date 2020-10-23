@@ -117,6 +117,8 @@ map <leader>gd :Gdiff HEAD<CR>
 map <leader>gl :Glog<CR>
 
 " b - вкладки (на самом деле буферы)
+map <leader>bp :bp<CR>
+map <leader>bn :bn<CR>
 map <leader>bb :call MyBufferDel()<CR>
 
 " f - поисковые движки
