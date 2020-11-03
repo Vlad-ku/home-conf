@@ -188,4 +188,5 @@ au BufNewFile,BufRead *.cal syn match GruvboxBlueSign  / h /
 au BufNewFile,BufRead *.cal syn match GruvboxGray      / o /
 au BufNewFile,BufRead *.cal syn match GruvboxRedBold   / e /
 au BufNewFile,BufRead *.cal syn match GruvboxGreenBold / a /
+au BufNewFile,BufRead *.cal syn match GruvboxAquaBold  / s /
 " ------------------------------------------------------------------
