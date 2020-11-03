@@ -77,6 +77,7 @@ Plug 'dhruvasagar/vim-table-mode'                       " работа с таб
 " Plug 'neovimhaskell/haskell-vim'                        " HASKELL
 " Plug 'posva/vim-vue'                                    " VUE
 " Plug 'maxmellon/vim-jsx-pretty'                         " JSX       (react native)
+" Plug 'stephpy/vim-yaml'                                 " YAML
 
 " Plug 'prettier/vim-prettier'                            " автоформатирование кода
 " Plug 'mhinz/vim-startify'                               " сессии и стартовый экран (видны файлы, открытые в прошлый раз)

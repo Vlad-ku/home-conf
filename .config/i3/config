@@ -15,7 +15,7 @@ for_window [class=".*"] title_format "%class"
 bindsym $mod+d exec --no-startup-id ~/.i3scripts/my_dmenu
 
 # экран блокировки
-bindsym $mod+o exec i3lock -c 555555
+bindsym $mod+o exec i3lock -c 440044
 
 # терминал
 bindsym $mod+Return exec i3-sensible-terminal
@@ -104,15 +104,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# режим для настройки 2х экранов
-mode "display" {
-	bindsym t exec "xrandr --output eDP1 --mode 1366x768 --pos 0x0 --output VGA1 --mode 1280x1024 --pos 1366x0"
-	bindsym f exec "xrandr --output VGA1 --off"
-        # выход из режима
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+Shift+d mode "display"
+# # режим для настройки 2х экранов
+# mode "display" {
+	# bindsym t exec "xrandr --output eDP1 --mode 1366x768 --pos 0x0 --output VGA1 --mode 1280x1024 --pos 1366x0"
+	# bindsym f exec "xrandr --output VGA1 --off"
+        # # выход из режима
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+# }
+# bindsym $mod+Shift+d mode "display"
 # -----------------------------------------------------------------------------
 # PrintScr
 bindsym Print       exec scrot    -e 'xclip -selection clipboard -t "image/png" < $f'
@@ -130,18 +130,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # определенные окна на своих рабочих столах
 assign [class="TelegramDesktop"] 10
 # -----------------------------------------------------------------------------
-# раскладка
+# раскладка (переключение языка по Caps Lock +светодиод на клаве)
 exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scroll,compose:paus
-# exec --no-startup-id setxkbmap -model pc105
-# exec --no-startup-id setxkbmap -layout us,ru
-# exec --no-startup-id setxkbmap -variant ,
-# exec --no-startup-id setxkbmap -option grp:caps_toggle,grp_led:scroll,compose:paus
-
-# анимации и полупрозрачность окон
-# exec --no-startup-id compton
-
-# для отправки уведомлений
-# exec --no-startup-id dunst
 
 # фон рабочего стола
 exec --no-startup-id nitrogen --restore
@@ -155,9 +145,6 @@ exec --no-startup-id keynav
 
 # отключение курсора
 exec --no-startup-id unclutter
-
-# автозапуск
-# exec --no-startup-id yandex-disk start
 
 # теперь дисплей не отключается через 10 минут
 exec --no-startup-id xset -dpms
