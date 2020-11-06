@@ -61,9 +61,9 @@ Plug 'tpope/vim-fugitive'                               " git команды (:G
 Plug 'mattn/emmet-vim'                                  " emmet
 Plug 'vim-scripts/LargeFile'                            " большие файлы
 Plug 'junegunn/fzf.vim'                                 " fzf поиск
-Plug 'mechatroner/rainbow_csv'                          " tsv файлы
+Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов)
+Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
 Plug 'sheerun/vim-polyglot'                             " подсветка языков
-Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами
 
 " Языки
 " Plug 'hail2u/vim-css3-syntax'                           " CSS
@@ -90,6 +90,12 @@ Plug 'dhruvasagar/vim-table-mode'                       " работа с таб
 " Plug 'terryma/vim-multiple-cursors'                     " мультикурсор
 " Plug 'xolox/vim-session'                                " сессии
 " Plug 'xolox/vim-misc'                                   " - зависимость
+
+" еще необходим сам latex пакет для системы и pdf просмоторщик (zathura с соответствующим плагином)
+" Plug 'lervag/vimtex'
+" let g:tex_flavor = 'latex'
+" let g:vimtex_quickfix_mode = 0
+" let g:vimtex_view_method = 'zathura'
 
 " if has('nvim')                                          " только для neovim
   " " автокомплит (нужен python3 + манипуляции с pip)
@@ -138,7 +144,7 @@ imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
 
 " INSERT номер новой заметки zettelkasten
-imap <silent> <C-Z><C-N> <C-R>=MyZetNumbNew()<CR>
+" imap <silent> <C-Z><C-N> <C-R>=MyZetNumbNew()<CR>
 
 " NORMAL однократное нажатие для табуляции
 nnoremap <silent> > >>
@@ -168,8 +174,8 @@ let g:ctrlp_show_hidden = 1                    " ctrlp      - отображат
 let g:NERDSpaceDelims = 1                      " commenting - пробел между комментом и данными
 let g:NERDTreeWinSize = 50                     " NERDtree   - ширина окна с деревом
 let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
-let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }
-let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']
+let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }  " emmet - для php используем одинарные кавычки
+let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']  " ctrlsf - игнорируем эти папки и файлы
 
 let g:netrw_banner = 0                         " скрывать баннер вверху с пояснениями
 let g:netrw_liststyle = 3                      " древовидный просмотр
