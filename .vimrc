@@ -54,6 +54,7 @@ Plug 'airblade/vim-gitgutter'                           " git подсветка
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'                      " nerdtree + git
 Plug 'ryanoasis/vim-devicons'                           " nerdtree + icons
+Plug 'vlad-ku/nerdtree-execute'                         " nerdtree + открытие бинарных файлов в просмоторщике по умолчанию
 Plug 'scrooloose/nerdcommenter'                         " комментирование
 Plug 'kien/ctrlp.vim'                                   " нечеткий поиск по файлам проекта
 Plug 'dyng/ctrlsf.vim'                                  " поиск и замена по нескольким файлам
@@ -63,9 +64,9 @@ Plug 'vim-scripts/LargeFile'                            " большие фай�
 Plug 'junegunn/fzf.vim'                                 " fzf поиск
 Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов)
 Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
-Plug 'sheerun/vim-polyglot'                             " подсветка языков
 
 " Языки
+Plug 'sheerun/vim-polyglot'                             " подсветка всех языков
 " Plug 'hail2u/vim-css3-syntax'                           " CSS
 " Plug 'cakebaker/scss-syntax.vim'                        " SASS
 " Plug 'StanAngeloff/php.vim'                             " PHP       (для синтаксиса. лучше подсветка штатных констант)
@@ -97,11 +98,18 @@ Plug 'sheerun/vim-polyglot'                             " подсветка я�
 " let g:vimtex_quickfix_mode = 0
 " let g:vimtex_view_method = 'zathura'
 
-" if has('nvim')                                          " только для neovim
-  " " автокомплит (нужен python3 + манипуляции с pip)
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " let g:deoplete#enable_at_startup = 1
-" endif
+
+" BEGIN автокомплит
+if has('nvim')                                            " только для neovim
+  if has('python3')                                       " при наличии python3
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    let g:deoplete#enable_at_startup = 1
+
+    Plug 'deoplete-plugins/deoplete-jedi'                 " python
+    let g:deoplete#sources#jedi#enable_typeinfo = 0
+  endif
+endif
+" END автокомплит
 
 call plug#end()
 " Конец блока плагинов
