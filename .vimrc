@@ -194,7 +194,7 @@ let g:netrw_winsize = 25                       " ширина окна с дер
 " свои скрипты на vimscript
 let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
 let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
-let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
+" let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
 " ------------------------------------------------------------------
 " при открытии файлов календаря активировать свою подсветку
 au BufNewFile,BufRead *.cal syn keyword GruvboxOrangeBold Пн Вт Ср Чт Пт Сб Вс
