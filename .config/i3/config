@@ -119,19 +119,27 @@ bindsym Print       exec scrot    -e 'xclip -selection clipboard -t "image/png" 
 bindsym Shift+Print exec scrot -u -e 'xclip -selection clipboard -t "image/png" < $f'
 
 # звук (F3, F5, F6)
-bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
+# bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
+bindsym Shift+F3    exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+bindsym Shift+F5    exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%
+bindsym Shift+F6    exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%
 
 # подсветка (F8, F9)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym Shift+F8    exec xbacklight -dec 5
+bindsym Shift+F9    exec xbacklight -inc 5
 # -----------------------------------------------------------------------------
 # определенные окна на своих рабочих столах
 assign [class="TelegramDesktop"] 10
 # -----------------------------------------------------------------------------
 # раскладка (переключение языка по Caps Lock +светодиод на клаве)
-exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scroll,compose:paus
+# exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scroll,compose:paus
+#
+# ТЕПЕРЬ РАСКЛАДКА НАСТРАИВАЕТСЯ ОДИН РАЗ В СИСТЕМНОЙ КОНФИГУРАЦИИ СЛЕДУЮЩЕЙ КОМАНДОЙ:
+# localectl --no-convert set-x11-keymap us,ru "" "", grp:caps_toggle
 
 # фон рабочего стола
 exec --no-startup-id nitrogen --restore
