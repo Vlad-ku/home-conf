@@ -56,8 +56,11 @@ myunzip() {
     rm "$1"             && \
     cd ..
 }
-mypass() {
-    python3 /mnt/enote/00_FILES/PASS/scripts/mypass.py
+mypass-copy() {
+    python3 /mnt/enote/00_FILES/PASS/scripts/mypass-copy.py
+}
+mypass-browser() {
+    python3 /mnt/enote/00_FILES/PASS/scripts/mypass-browser.py
 }
 mytg() {
     curl \
