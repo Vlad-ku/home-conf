@@ -18,10 +18,10 @@
 (xbindkey '(Shift mod4 g) "xdotool   keyup --delay 0 g   keyup --delay 0 Super   key --delay 0 End     keydown --delay 0 Super")
 
 ; 3 - word (left, right)
-(xbindkey '(mod4 w)       "xdotool   keyup --delay 0 w   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Right   keyup --delay 0 Ctrl   keydown --delay 0 Super")
-(xbindkey '(Shift mod4 w) "xdotool   keyup --delay 0 w   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Right   keyup --delay 0 Ctrl   keydown --delay 0 Super")
-(xbindkey '(mod4 b)       "xdotool   keyup --delay 0 b   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Left    keyup --delay 0 Ctrl   keydown --delay 0 Super")
-(xbindkey '(Shift mod4 b) "xdotool   keyup --delay 0 b   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Left    keyup --delay 0 Ctrl   keydown --delay 0 Super")
+; (xbindkey '(mod4 w)       "xdotool   keyup --delay 0 w   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Right   keyup --delay 0 Ctrl   keydown --delay 0 Super")
+; (xbindkey '(Shift mod4 w) "xdotool   keyup --delay 0 w   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Right   keyup --delay 0 Ctrl   keydown --delay 0 Super")
+; (xbindkey '(mod4 b)       "xdotool   keyup --delay 0 b   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Left    keyup --delay 0 Ctrl   keydown --delay 0 Super")
+; (xbindkey '(Shift mod4 b) "xdotool   keyup --delay 0 b   keyup --delay 0 Super   keydown --delay 0 Ctrl   key --delay 0 Left    keyup --delay 0 Ctrl   keydown --delay 0 Super")
 
 ; 4 - вертикальные варп прыжки (х5)
 (xbindkey '(mod4 i)       "xdotool   keyup --delay 0 i   keyup --delay 0 Super   key --delay 0 --repeat 5  Up      keydown --delay 0 Super")
