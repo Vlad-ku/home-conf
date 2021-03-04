@@ -56,6 +56,11 @@ myunzip() {
     rm "$1"             && \
     cd ..
 }
+myzipedit() {
+    echo "Usage: zipedit archive.zip file.txt"
+    unzip "$1" "$2" -d /tmp 
+    vim /tmp/$2 && zip -j --update "$1"  "/tmp/$2" 
+}
 mypass-copy() {
     python3 /mnt/enote/00_FILES/PASS/scripts/mypass-copy.py
 }
