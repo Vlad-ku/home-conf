@@ -177,12 +177,6 @@ let g:NERDTreeWinSize = 50                     " NERDtree   - ширина ок�
 let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
 let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }  " emmet - для php используем одинарные кавычки
 let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']  " ctrlsf - игнорируем эти папки и файлы
-
-let g:netrw_banner = 0                         " скрывать баннер вверху с пояснениями
-let g:netrw_liststyle = 3                      " древовидный просмотр
-let g:netrw_browse_split = 4                   " открывать файлы в предыдущем окне
-" let g:netrw_altv = 1
-let g:netrw_winsize = 25                       " ширина окна с деревом
 " ------------------------------------------------------------------
 " свои скрипты на vimscript
 let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
