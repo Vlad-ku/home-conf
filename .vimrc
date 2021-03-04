@@ -27,13 +27,6 @@ set nobackup        " отключение backup file
 set noswapfile      " отключение swap   file
 " set noundofile      " отключение undo   file
 " END служебные файлы
-
-" BEGIN русская раскладка
-" set keymap=russian-jcukenwin
-" set iminsert=0
-" set imsearch=0
-" highlight lCursor guifg=NONE guibg=Cyan
-" END русская раскладка
 " ------------------------------------------------------------------
 " Начало блока плагинов
 
