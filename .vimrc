@@ -55,7 +55,7 @@ Plug 'tpope/vim-fugitive'                               " git команды (:G
 Plug 'mattn/emmet-vim'                                  " emmet
 Plug 'vim-scripts/LargeFile'                            " большие файлы
 Plug 'junegunn/fzf.vim'                                 " fzf поиск
-Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов)
+" Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов) (не виден счетчик поиска, поэтому отключил)
 Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
 
 " Языки
@@ -91,7 +91,6 @@ Plug 'sheerun/vim-polyglot'                             " подсветка в�
 " let g:vimtex_quickfix_mode = 0
 " let g:vimtex_view_method = 'zathura'
 
-
 " BEGIN автокомплит
 if has('nvim')                                            " только для neovim
   if has('python3')                                       " при наличии python3
@@ -116,13 +115,11 @@ map <leader>ne :Vexplore<CR>
 
 " p - прямое указание открываемого пути
 map <leader>pp :CtrlP<CR>
-map <leader>pb :CtrlPBuffer<CR>
 map <leader>pf :FZF<CR>
 
 " g - git операции
 map <leader>gs :Gstatus<CR><C-w>o
 map <leader>gd :Gdiff HEAD<CR>
-map <leader>gl :Glog<CR>
 
 " b - вкладки (на самом деле буферы)
 map <leader>bp :bp<CR>
