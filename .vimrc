@@ -55,8 +55,8 @@ Plug 'tpope/vim-fugitive'                               " git команды (:G
 Plug 'mattn/emmet-vim'                                  " emmet
 Plug 'vim-scripts/LargeFile'                            " большие файлы
 Plug 'junegunn/fzf.vim'                                 " fzf поиск
-" Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов) (не виден счетчик поиска, поэтому отключил)
 Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " автоформатирование кода
 
 " Языки
 Plug 'sheerun/vim-polyglot'                             " подсветка всех языков
@@ -73,7 +73,7 @@ Plug 'sheerun/vim-polyglot'                             " подсветка в�
 " Plug 'maxmellon/vim-jsx-pretty'                         " JSX       (react native)
 " Plug 'stephpy/vim-yaml'                                 " YAML
 
-" Plug 'prettier/vim-prettier'                            " автоформатирование кода
+" Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов) (не виден счетчик поиска, поэтому отключил)
 " Plug 'mhinz/vim-startify'                               " сессии и стартовый экран (видны файлы, открытые в прошлый раз)
 " Plug 'brooth/far.vim'                                   " поиск и замена по нескольким файлам (использую ctrlSF)
 " Plug 'tpope/vim-surround'                               " работа с кавычками, скобками и тегами
