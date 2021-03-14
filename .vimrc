@@ -174,6 +174,8 @@ let g:NERDTreeWinSize = 50                     " NERDtree   - ширина ок�
 let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
 let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }  " emmet - для php используем одинарные кавычки
 let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']  " ctrlsf - игнорируем эти папки и файлы
+let g:prettier#autoformat_require_pragma = 0  " prettier    - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
+let g:prettier#autoformat_config_present = 1  " prettier    - автоформатирование включено, только когда есть конфиг в проекте
 " ------------------------------------------------------------------
 " свои скрипты на vimscript
 let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
