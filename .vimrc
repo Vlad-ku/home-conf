@@ -134,9 +134,6 @@ map <leader>ft :CtrlSFToggle<CR>
 map <leader>rp :!python3 "%"<CR>
 map <leader>rb :!bash "%"<CR>
 
-" ,, (развернуть emmet команду)
-let g:user_emmet_leader_key=','
-
 " INSERT вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
 imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
@@ -171,7 +168,6 @@ let g:airline_powerline_fonts = 1              " airline    - использов
 let g:ctrlp_show_hidden = 1                    " ctrlp      - отображать скрытые файлы
 let g:NERDSpaceDelims = 1                      " commenting - пробел между комментом и данными
 let g:NERDTreeWinSize = 50                     " NERDtree   - ширина окна с деревом
-let g:user_emmet_mode = 'n'                    " emmet      - только в NORMAL режиме (иначе неожиданные глюки при печати)
 let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }  " emmet - для php используем одинарные кавычки
 let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']  " ctrlsf - игнорируем эти папки и файлы
 let g:prettier#autoformat_require_pragma = 0  " prettier    - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
