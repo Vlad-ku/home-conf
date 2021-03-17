@@ -50,6 +50,7 @@ if has('nvim') && has('python3')
         \ 'coc-sh',
         \ 'coc-vimlsp',
         \ ]
+  Plug 'honza/vim-snippets'                             " комплект предзаготовленных сниппетов
 
   " `ENTER` - разворачивание сниппета или подсказки
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
