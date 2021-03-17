@@ -1,3 +1,63 @@
+" ------------------------------------------------------------------
+" Начало блока плагинов
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'                                  " gruvbox - цветовая тема
+Plug 'airblade/vim-gitgutter'                           " gitgutter - подсветка изменений (слева)
+Plug 'vim-airline/vim-airline'                          " airline - строка статуса
+let g:airline#extensions#tabline#enabled = 1            " airline - отображать вкладки
+let g:airline_powerline_fonts = 1                       " airline - использовать шрифты powerline
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree
+let g:NERDTreeWinSize = 50                              " nerdtree - ширина окна с деревом
+Plug 'Xuyuanp/nerdtree-git-plugin'                      " nerdtree+git
+Plug 'ryanoasis/vim-devicons'                           " nerdtree+icons
+Plug 'vlad-ku/nerdtree-execute'                         " nerdtree+(открытие бинарных файлов в просмоторщике по умолчанию)
+Plug 'scrooloose/nerdcommenter'                         " commenting - комментирование
+let g:NERDSpaceDelims = 1                               " commenting - пробел между комментом и данными
+Plug 'tpope/vim-fugitive'                               " git команды (:Gstatus :Gdiff)
+Plug 'vim-scripts/LargeFile'                            " большие файлы
+Plug 'kien/ctrlp.vim'                                   " ctrlp - нечеткий поиск файлов
+let g:ctrlp_show_hidden = 1                             " ctrlp - отображать скрытые файлы
+Plug 'junegunn/fzf.vim'                                 " fzf - нечеткий поиск файлов
+Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
+Plug 'mattn/emmet-vim'                                  " emmet
+let g:user_emmet_leader_key='<C-Z>'                     " emmet - разворачивать по `<C-Z>,`
+let g:user_emmet_settings = {'php':{'quote_char':"'"}}  " emmet - для php используем одинарные кавычки
+Plug 'sheerun/vim-polyglot'                             " polyglot - подсветка всех языков
+Plug 'dyng/ctrlsf.vim'                                  " ctrlsf - поиск и замена по нескольким файлам
+let g:ctrlsf_ignore_dir = [ 'bower_components', 'node_modules', 'package-lock.json' ]
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " prettier - автоформатирование кода при сохранении
+let g:prettier#autoformat_require_pragma = 0            " prettier - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
+let g:prettier#autoformat_config_present = 1            " prettier - автоформатирование включено, только когда есть конфиг в проекте
+
+if has('nvim') && has('python3')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}       " coc - модный автокомплит как VSCode
+  let g:coc_global_extensions = [
+        \ 'coc-snippets',
+        \ 'coc-tsserver',
+        \ 'coc-json',
+        \ 'coc-html',
+        \ 'coc-css',
+        \ 'coc-pyright',
+        \ 'coc-phpls',
+        \ 'coc-sh',
+        \ ]
+endif
+
+call plug#end()
+
+" Конец блока плагинов
+" ------------------------------------------------------------------
+" настройки ядра
+colorscheme gruvbox " можно вызывать только после завершения блока плагинов
+
 set number          " нумерация строк
 set relativenumber  " номера строк относительные
 set shortmess-=S    " при поиске отображать количество (vim > 8.1.1270, nvim > 0.4.0)
@@ -28,90 +88,11 @@ set noswapfile      " отключение swap   file
 " set noundofile      " отключение undo   file
 " END служебные файлы
 " ------------------------------------------------------------------
-" Начало блока плагинов
-
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-
-" оформление
-Plug 'morhetz/gruvbox'                                  " цветовая тема
-Plug 'vim-airline/vim-airline'                          " строка статуса
-Plug 'airblade/vim-gitgutter'                           " git подсветка изменений
-
-" функционал
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'                      " nerdtree + git
-Plug 'ryanoasis/vim-devicons'                           " nerdtree + icons
-Plug 'vlad-ku/nerdtree-execute'                         " nerdtree + открытие бинарных файлов в просмоторщике по умолчанию
-Plug 'scrooloose/nerdcommenter'                         " комментирование
-Plug 'kien/ctrlp.vim'                                   " нечеткий поиск по файлам проекта
-Plug 'dyng/ctrlsf.vim'                                  " поиск и замена по нескольким файлам
-Plug 'tpope/vim-fugitive'                               " git команды (:Gstatus :Gdiff)
-Plug 'mattn/emmet-vim'                                  " emmet
-Plug 'vim-scripts/LargeFile'                            " большие файлы
-Plug 'junegunn/fzf.vim'                                 " fzf поиск
-Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " автоформатирование кода
-
-" Языки
-Plug 'sheerun/vim-polyglot'                             " подсветка всех языков
-" Plug 'hail2u/vim-css3-syntax'                           " CSS
-" Plug 'cakebaker/scss-syntax.vim'                        " SASS
-" Plug 'StanAngeloff/php.vim'                             " PHP       (для синтаксиса. лучше подсветка штатных констант)
-" Plug 'othree/html5.vim'                                 " HTML      (для синтаксиса. без него комментарии все ломают в php файлах)
-" Plug 'pangloss/vim-javascript'                          " JS
-" Plug 'evidens/vim-twig'                                 " TWIG      (шаблонизатор для php) (без него подсветки просто нет)
-" Plug 'shawncplus/phpcomplete.vim'
-" Plug 'dsawardekar/wordpress.vim'                        " WP        (для синтаксиса)
-" Plug 'neovimhaskell/haskell-vim'                        " HASKELL
-" Plug 'posva/vim-vue'                                    " VUE
-" Plug 'maxmellon/vim-jsx-pretty'                         " JSX       (react native)
-" Plug 'stephpy/vim-yaml'                                 " YAML
-
-" Plug 'mechatroner/rainbow_csv'                          " tsv файлы (радужные цвета столбцов) (не виден счетчик поиска, поэтому отключил)
-" Plug 'mhinz/vim-startify'                               " сессии и стартовый экран (видны файлы, открытые в прошлый раз)
-" Plug 'brooth/far.vim'                                   " поиск и замена по нескольким файлам (использую ctrlSF)
-" Plug 'tpope/vim-surround'                               " работа с кавычками, скобками и тегами
-" Plug 'Valloric/YouCompleteMe'                           " автокомплит (для работы необходима КОМПИЛЯЦИЯ)
-" Plug 'jiangmiao/auto-pairs'                             " авто закрытие кавычек
-" Plug 'easymotion/vim-easymotion'                        " быстрые прыжки по коду (отходят от vim стиля перемещения)
-" Plug 'rking/ag.vim'                                     " поиск по проекту
-" Plug 'terryma/vim-multiple-cursors'                     " мультикурсор
-" Plug 'xolox/vim-session'                                " сессии
-" Plug 'xolox/vim-misc'                                   " - зависимость
-
-" еще необходим сам latex пакет для системы и pdf просмоторщик (zathura с соответствующим плагином)
-" Plug 'lervag/vimtex'
-" let g:tex_flavor = 'latex'
-" let g:vimtex_quickfix_mode = 0
-" let g:vimtex_view_method = 'zathura'
-
-" BEGIN автокомплит
-if has('nvim')                                            " только для neovim
-  if has('python3')                                       " при наличии python3
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup = 1
-
-    Plug 'deoplete-plugins/deoplete-jedi'                 " python
-    let g:deoplete#sources#jedi#enable_typeinfo = 0
-  endif
-endif
-" END автокомплит
-
-call plug#end()
-" Конец блока плагинов
-" ------------------------------------------------------------------
 " горячие клавиши
 let mapleader=" "
 
 " n - древоподобный просмотр файлов
 map <leader>nn :NERDTreeToggle<CR>
-map <leader>ne :Vexplore<CR>
 
 " p - прямое указание открываемого пути
 map <leader>pp :CtrlP<CR>
@@ -160,22 +141,9 @@ menu Encoding.koi8-r       :e ++enc=koi8-r ++ff=unix<CR>
 menu Encoding.koi8-u       :e ++enc=koi8-u ++ff=unix<CR>
 map <F8> :emenu Encoding.<TAB>
 " ------------------------------------------------------------------
-" доводка плагинов
-colorscheme gruvbox                            " gruvbox    - тема
-set background=dark                            " gruvbox    - темный режим
-let g:airline#extensions#tabline#enabled = 1   " airline    - отображать вкладки
-let g:airline_powerline_fonts = 1              " airline    - использовать шрифты powerline
-let g:ctrlp_show_hidden = 1                    " ctrlp      - отображать скрытые файлы
-let g:NERDSpaceDelims = 1                      " commenting - пробел между комментом и данными
-let g:NERDTreeWinSize = 50                     " NERDtree   - ширина окна с деревом
-let g:user_emmet_settings = { 'php' : { 'quote_char': "'" } }  " emmet - для php используем одинарные кавычки
-let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'package-lock.json']  " ctrlsf - игнорируем эти папки и файлы
-let g:prettier#autoformat_require_pragma = 0  " prettier    - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
-let g:prettier#autoformat_config_present = 1  " prettier    - автоформатирование включено, только когда есть конфиг в проекте
-" ------------------------------------------------------------------
 " свои скрипты на vimscript
 let $TEMP = '~/.vim-func/my-buffer-del.vim'     | source $TEMP
-let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
+" let $TEMP = '~/.vim-func/my-list-file.vim'      | source $TEMP
 " let $TEMP = '~/.vim-func/my-zet-numb-new.vim'   | source $TEMP
 " ------------------------------------------------------------------
 " при открытии файлов календаря активировать свою подсветку
