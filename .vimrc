@@ -48,7 +48,24 @@ if has('nvim') && has('python3')
         \ 'coc-pyright',
         \ 'coc-phpls',
         \ 'coc-sh',
+        \ 'coc-vimlsp',
         \ ]
+
+  " `ENTER` - разворачивание сниппета или подсказки
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+  " `CTRL+SPACE` - обновление окна автокомплита (отображение)
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  " `K` - открытие справки для функции (дополнение штатного функционала)
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+          execute 'h '.expand('<cword>')
+      else
+          call CocAction('doHover')
+      endif
+  endfunction
 endif
 
 call plug#end()
@@ -57,6 +74,7 @@ call plug#end()
 " ------------------------------------------------------------------
 " настройки ядра
 colorscheme gruvbox " можно вызывать только после завершения блока плагинов
+set background=dark " в vim без этого открывается светлая тема
 
 set number          " нумерация строк
 set relativenumber  " номера строк относительные
@@ -114,6 +132,12 @@ map <leader>ft :CtrlSFToggle<CR>
 " r - запуск кода
 map <leader>rp :!python3 "%"<CR>
 map <leader>rb :!bash "%"<CR>
+
+" a - автокомплит
+map <leader>as :CocCommand snippets.editSnippets<CR>
+map <leader>ag :CocAction<CR>
+map <leader>ae :CocEnable<CR>
+map <leader>ad :CocDisable<CR>
 
 " INSERT вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
 imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
