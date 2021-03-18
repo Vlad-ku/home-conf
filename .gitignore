@@ -20,6 +20,12 @@
 !/.config/coc/ultisnips
 # END vim snippets
 
+# BEGIN vim coc config
+!/.vim
+/.vim/*
+!/.vim/coc-settings.json
+# END vim coc config
+
 !/.gnupg
 /.gnupg/*
 !/.gnupg/gpg-agent.conf

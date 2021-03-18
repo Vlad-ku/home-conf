@@ -142,16 +142,21 @@ map <leader>rb :!bash "%"<CR>
 
 " a - автокомплит
 map <leader>as :CocCommand snippets.editSnippets<CR>
+map <leader>ac :CocConfig<CR>
 map <leader>ag :CocAction<CR>
 map <leader>ae :CocEnable<CR>
 map <leader>ad :CocDisable<CR>
 
-" INSERT вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
-imap <silent> <C-D><C-D> <C-R>=strftime("%F")<CR>
-imap <silent> <C-T><C-T> <C-R>=strftime("[%F %R]")<CR>
-
 " INSERT номер новой заметки zettelkasten
-" imap <silent> <C-Z><C-N> <C-R>=MyZetNumbNew()<CR>
+" inoremap <silent> <expr> <C-Z><C-N> MyZetNumbNew()
+
+" INSERT вставка меток 'дата' и 'дата+время' (Ctrl+D+D, Ctrl+T+T)
+inoremap <silent> <expr> <C-D><C-D> strftime("%F")
+inoremap <silent> <expr> <C-T><C-T> strftime("[%F %R]")
+
+" NORMAL+VISUAL перемещение по виртуальным строкам (режим переноса строк)
+ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " NORMAL однократное нажатие для табуляции
 nnoremap <silent> > >>

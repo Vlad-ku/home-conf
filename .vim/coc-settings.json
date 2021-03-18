@@ -1,0 +1,10 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "html",
+        "css",
+        "jsonc"
+    ],
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": true
+}
