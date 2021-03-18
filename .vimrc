@@ -145,6 +145,7 @@ map <leader>rb :!bash "%"<CR>
 
 " a - автокомплит
 map <leader>as :CocCommand snippets.editSnippets<CR>
+map <leader>af :CocCommand<CR>
 map <leader>ac :CocConfig<CR>
 map <leader>ag :CocAction<CR>
 map <leader>ae :CocEnable<CR>
