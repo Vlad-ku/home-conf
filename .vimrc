@@ -33,41 +33,47 @@ let g:user_emmet_settings = {'php':{'quote_char':"'"}}  " emmet - для php и�
 Plug 'sheerun/vim-polyglot'                             " polyglot - подсветка всех языков
 Plug 'dyng/ctrlsf.vim'                                  " ctrlsf - поиск и замена по нескольким файлам
 let g:ctrlsf_ignore_dir = [ 'bower_components', 'node_modules', 'package-lock.json' ]
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " prettier - автоформатирование кода при сохранении
-let g:prettier#autoformat_require_pragma = 0            " prettier - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
-let g:prettier#autoformat_config_present = 1            " prettier - автоформатирование включено, только когда есть конфиг в проекте
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " prettier - автоформатирование кода при сохранении
+" let g:prettier#autoformat_require_pragma = 0            " prettier - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
+" let g:prettier#autoformat_config_present = 1            " prettier - автоформатирование включено, только когда есть конфиг в проекте
 
-if has('nvim') && has('python3')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}       " coc - модный автокомплит как VSCode
-  let g:coc_global_extensions = [
-        \ 'coc-snippets',
-        \ 'coc-tsserver',
-        \ 'coc-json',
-        \ 'coc-html',
-        \ 'coc-css',
-        \ 'coc-pyright',
-        \ 'coc-phpls',
-        \ 'coc-sh',
-        \ 'coc-vimlsp',
-        \ ]
-  Plug 'honza/vim-snippets'                             " комплект предзаготовленных сниппетов
+" BEGIN автокомплит
+Plug 'honza/vim-snippets'                               " комплект предзаготовленных сниппетов
+Plug 'neoclide/coc.nvim', {'branch': 'release'}         " coc - модный автокомплит как VSCode
+let g:coc_global_extensions = [
+            \ 'coc-snippets',
+            \ 'coc-prettier',
+            \ 'coc-tsserver',
+            \ 'coc-html',
+            \ 'coc-css',
+            \ 'coc-json',
+            \ 'coc-pyright',
+            \ 'coc-phpls',
+            \ 'coc-sh',
+            \ 'coc-vimlsp',
+            \ ]
 
-  " `ENTER` - разворачивание сниппета или подсказки
-  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" `ENTER` - разворачивание сниппета или подсказки (+ делает точку разрыва для отмены)
+" работает и без слешей в строке, но в доках на coc все служебные сочетания так обозначены, будем следовать
+inoremap <expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 
-  " `CTRL+SPACE` - обновление окна автокомплита (отображение)
-  inoremap <silent><expr> <c-space> coc#refresh()
-
-  " `K` - открытие справки для функции (дополнение штатного функционала)
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-  function! s:show_documentation()
-      if (index(['vim','help'], &filetype) >= 0)
-          execute 'h '.expand('<cword>')
-      else
-          call CocAction('doHover')
-      endif
-  endfunction
+" `CTRL+SPACE` - обновление окна автокомплита (в vim и nvim разное поведение)
+if has('nvim')
+    inoremap <expr> <c-space> coc#refresh()
+else
+    inoremap <expr> <c-@> coc#refresh()
 endif
+
+" `K` - открытие справки для функции (дополнение штатного функционала)
+nnoremap K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+" BEGIN автокомплит
 
 call plug#end()
 
