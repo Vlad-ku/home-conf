@@ -70,8 +70,10 @@ nnoremap K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
     else
-        call CocAction('doHover')
+        execute '!'.&keywordprg." ".expand('<cword>')
     endif
 endfunction
 " BEGIN автокомплит
@@ -147,6 +149,8 @@ map <leader>ac :CocConfig<CR>
 map <leader>ag :CocAction<CR>
 map <leader>ae :CocEnable<CR>
 map <leader>ad :CocDisable<CR>
+map <leader>ar <Plug>(coc-rename)
+
 
 " INSERT номер новой заметки zettelkasten
 " inoremap <silent> <expr> <C-Z><C-N> MyZetNumbNew()
