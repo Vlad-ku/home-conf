@@ -145,12 +145,15 @@ map <leader>rb :!bash "%"<CR>
 
 " a - автокомплит
 map <leader>as :CocCommand snippets.editSnippets<CR>
-map <leader>af :CocCommand<CR>
 map <leader>ac :CocConfig<CR>
-map <leader>ag :CocAction<CR>
+"
 map <leader>ae :CocEnable<CR>
 map <leader>ad :CocDisable<CR>
+"
+map <leader>af :CocCommand<CR>
+map <leader>ag :CocAction<CR>
 map <leader>ar <Plug>(coc-rename)
+map <leader>aj :CocCommand prettier.formatFile<CR>
 
 
 " INSERT номер новой заметки zettelkasten
