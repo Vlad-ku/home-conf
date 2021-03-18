@@ -27,9 +27,9 @@ Plug 'kien/ctrlp.vim'                                   " ctrlp - нечетки
 let g:ctrlp_show_hidden = 1                             " ctrlp - отображать скрытые файлы
 Plug 'junegunn/fzf.vim'                                 " fzf - нечеткий поиск файлов
 Plug 'dhruvasagar/vim-table-mode'                       " работа с таблицами (автоформатирование)
-Plug 'mattn/emmet-vim'                                  " emmet
-let g:user_emmet_leader_key='<C-Z>'                     " emmet - разворачивать по `<C-Z>,`
-let g:user_emmet_settings = {'php':{'quote_char':"'"}}  " emmet - для php используем одинарные кавычки
+" Plug 'mattn/emmet-vim'                                  " emmet
+" let g:user_emmet_leader_key='<C-Z>'                     " emmet - разворачивать по `<C-Z>,`
+" let g:user_emmet_settings = {'php':{'quote_char':"'"}}  " emmet - для php используем одинарные кавычки
 Plug 'sheerun/vim-polyglot'                             " polyglot - подсветка всех языков
 Plug 'dyng/ctrlsf.vim'                                  " ctrlsf - поиск и замена по нескольким файлам
 let g:ctrlsf_ignore_dir = [ 'bower_components', 'node_modules', 'package-lock.json' ]
@@ -43,6 +43,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}         " coc - модный а�
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-prettier',
+            \ 'coc-emmet',
             \ 'coc-tsserver',
             \ 'coc-html',
             \ 'coc-css',

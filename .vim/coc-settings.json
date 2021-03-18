@@ -6,5 +6,9 @@
         "jsonc"
     ],
     "prettier.tabWidth": 4,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "javascript": "javascriptreact"
+    }
 }
