@@ -129,6 +129,8 @@ map <leader>pf :FZF<CR>
 " g - git операции
 map <leader>gs :Gstatus<CR><C-w>o
 map <leader>gd :Gdiff HEAD<CR>
+map <leader>gc :Git commit -m 
+map <leader>gp :Git push
 
 " b - вкладки (на самом деле буферы)
 map <leader>bp :bp<CR>
