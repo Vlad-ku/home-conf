@@ -1,4 +1,5 @@
 {
+    "prettier.printWidth": 150,
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "emmet.includeLanguages": {
