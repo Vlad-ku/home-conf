@@ -7,6 +7,7 @@ alias ll='ls -AlF'
 alias l='ls -lF'
 alias c='clear'
 alias s='python -m http.server'
+alias d='cd /mnt/XDATA/Downloads'
 
 # другие алиасы
 [ -f $HOME/.bashrc_aliases ] && . $HOME/.bashrc_aliases
