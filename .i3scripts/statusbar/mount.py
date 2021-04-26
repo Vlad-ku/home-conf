@@ -27,6 +27,8 @@ def mount():
         if y[6] in fltr:                                    # фильтруем точки монтирования
             continue
         ret.append( '`'.join([ y[0], y[3], y[6] ]) )
+    if len(ret) == 0:
+        return 'null'
     return ' - '.join(ret)
 
 print( mount() )
