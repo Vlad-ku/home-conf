@@ -9,6 +9,6 @@ if [[ $mute = "muted:no" ]]
 fi
 
 if [[ -n "$volume" ]]
-    then echo 'AUDIO '$volume' '$mute
-    else echo "AUDIO null"
+    then echo '🎵 '$volume' '$mute
+    else echo "🎵 null"
 fi

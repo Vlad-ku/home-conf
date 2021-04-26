@@ -20,5 +20,5 @@ if [ -f $BAT ]; then
     # echo $status' ['$pr1'/'$pr2']% ['$charge_now'/'$charge_full'/'$charge_full_design']W ['$V1']V'
     echo $status'['$pr1'/'$pr2']%'
 else
-    echo "BATTERY null"
+    echo "⚡ null"
 fi
