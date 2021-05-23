@@ -39,8 +39,8 @@ let g:ctrlsf_ignore_dir = [ 'bower_components', 'node_modules', 'package-lock.js
 
 " BEGIN автокомплит
 Plug 'honza/vim-snippets'                               " комплект предзаготовленных сниппетов
-let g:coc_start_at_startup = 0
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " coc - модный автокомплит как VSCode
+let g:coc_start_at_startup = 0                          " coc - автозапуск отключен
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-prettier',
