@@ -122,6 +122,7 @@ let mapleader=" "
 
 " n - древоподобный просмотр файлов
 map <leader>nn :NERDTreeToggle<CR>
+map <leader>nw :set nowrap<CR>
 
 " p - прямое указание открываемого пути
 map <leader>pp :CtrlP<CR>
@@ -169,6 +170,10 @@ inoremap <silent> <expr> <C-T><C-T> strftime("[%F %R]")
 " NORMAL+VISUAL перемещение по виртуальным строкам (режим переноса строк)
  " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
  " noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" NORMAL+VISUAL горизонтальный скролл (как C-E C-Y)
+noremap <C-L> zl
+noremap <C-H> zh
 
 " NORMAL однократное нажатие для табуляции
 nnoremap <silent> > >>
