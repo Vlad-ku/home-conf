@@ -142,6 +142,7 @@ map <leader>bb :call MyBufferDel()<CR>
 " f - поисковые движки
 map <leader>ff :CtrlSF<space>
 map <leader>ft :CtrlSFToggle<CR>
+map <silent> <expr> <leader>fw mode() == 'v' ? 'y:CtrlSF "<C-R>""<CR>' : ':echo "надо находиться в VISUAL режиме"<CR>'
 
 " r - запуск кода
 map <leader>rp :!python3 "%"<CR>
