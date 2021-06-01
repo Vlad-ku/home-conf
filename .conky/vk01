@@ -44,7 +44,7 @@ conky.config = {
 
 conky.text = [[
 ${alignc}${time %T}
-${time %A}${alignr}${time %d.%m.%Y}
+${time %A}${alignr}${time %Y-%m-%d}
 ${hr 1}
 Ядро            ${alignr}${color1}${kernel}${color}
 Время работы    ${alignr}${color1}${uptime_short}${color}

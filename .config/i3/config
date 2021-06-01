@@ -144,6 +144,8 @@ assign [class="TelegramDesktop"] 10
 # ТЕПЕРЬ РАСКЛАДКА НАСТРАИВАЕТСЯ ОДИН РАЗ В СИСТЕМНОЙ КОНФИГУРАЦИИ СЛЕДУЮЩЕЙ КОМАНДОЙ:
 # localectl --no-convert set-x11-keymap us,ru "" "", grp:caps_toggle
 
+exec --no-startup-id conky -c ~/.conky/vk01
+
 # фон рабочего стола
 exec --no-startup-id nitrogen --restore
 
