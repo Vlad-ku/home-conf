@@ -1,0 +1,81 @@
+conky.config = {
+	background = yes,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	temperature_unit = 'celsius',
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+	gap_x = 5,
+	gap_y = 0,
+	minimum_width = 250,
+	maximum_width = 250,
+	own_window = true,
+	own_window_class = 'conky',
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_type = 'desktop',
+	background = false,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	alignment = 'top_right',
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'DejaVu Sans:size=9',
+	xftalpha = 0.5,
+	uppercase = false,
+
+	default_color = 'white',
+        color1 = 'yellow',
+        color2 = 'green',
+	color3 = "red",
+};
+
+conky.text = [[
+${voffset 10}
+${font Intro:style=Bold:pixelsize=21}${alignc}${time %T}
+${alignc}${time %d %B %Y} 
+${alignc}${time %A}${voffset -10}
+${hr 1}
+${goto 10}${voffset 4}${font Intro:style=Bold:pixelsize=21}${color2}СИСТЕМА${color}${hr}${color}
+${goto 10}${voffset 4}${font OpenLogos:size=14}B${font bender:style=Bold:size=12}  ОС: ${color1}ARCH Linux${color}
+${goto 10}${voffset 4}${font OpenLogos:size=14}t${font bender:style=Bold:size=12}   Ядро: ${color1}${kernel}${color}
+${goto 10}${voffset 4}${font StyleBats:size=14}p${font bender:style=Bold:size=12}  Время работы: ${color1}${uptime}${color}
+
+${goto 5}${font Intro:style=Bold:pixelsize=21}${color2}ОЗУ${color}${hr}${color}
+${font bender:style=Bold:size=11}  RAM    ${color1}${alignr}$mem${color} / $memmax ${color1}($memperc%)${color}
+${goto 5}${color1}${membar mem 0}${color}
+${font bender:style=Bold:size=11}  SWAP ${color1}${alignr}${swap}${color}
+
+${goto 5}${font Intro:style=Bold:pixelsize=21}${color2}ПРОЦЕССОР${color}${hr}${color}
+${font bender:style=Bold:size=11}  CPU ${alignr}${color1}${cpu cpu0}% ${color} | ${color3}${acpitemp} С${color}
+${goto 5}${color1}${cpugraph 15,250 1783B4 FFFFFF cpu} ${color}
+${goto 10}${color1}${font bender:style=Bold:size=11}ДЕМОНЫ ${goto 135}  CPU ${goto 205}  MEM${color}
+${goto 10}${top name 1}${goto 135}${top cpu 1}${goto 205}${top mem 1}
+${goto 10}${top name 2}${goto 135}${top cpu 2}${goto 205}${top mem 2}
+${goto 10}${top name 3}${goto 135}${top cpu 3}${goto 205}${top mem 3}
+
+${goto 5}${font Intro:style=Bold:pixelsize=21}${color2}ДИСКИ${color}${hr}${color}
+${font bender:style=Bold:size=11}  Root: ${color1}${alignr}${fs_free /}${color} / ${fs_size /}
+${font bender:style=Bold:size=11}  Home: ${color1}${alignr}${fs_free /home}${color} / ${fs_size /home}
+
+${goto 5}${font Intro:style=Bold:pixelsize=21}${color2}СЕТЬ${color}${hr}${color}
+${goto 10}${voffset -6}${font PizzaDude Bullets:size=12}O${font bender:style=Bold:size=11}   Up:    ${upspeedgraph wlp3s0 8,55 1783B4 FFFFFF}${alignr}${color1}${upspeed wlp3s0} kb/s${color}
+${goto 10}${voffset 4}${font PizzaDude Bullets:size=12}U${font bender:style=Bold:size=11}   Down:${downspeedgraph wlp3s0 8,55 1783B4 FFFFFF}${alignr}${color1}${downspeed wlp3s0} kb/s${color}
+${goto 10}${voffset 4}${font PizzaDude Bullets:size=12}N${font bender:style=Bold:size=11}   Upload: ${color1}${alignr}${totalup wlp3s0}${color}
+${goto 10}${voffset 4}${font PizzaDude Bullets:size=12}T${font bender:style=Bold:size=11}   Download: ${color1}${alignr}${totaldown wlp3s0}${color}
+${goto 10}${voffset 4}${font PizzaDude Bullets:size=12}a${font bender:style=Bold:size=11}   Local IP: ${color1}${alignr}${addr wlp3s0}${color}
+${goto 10}${voffset 4}${font PizzaDude Bullets:size=12}a${font bender:style=Bold:size=11}   Public IP: ${color1}${alignr}${execi 60 wget -O - -q icanhazip.com}${color}
+${hr 1}
+]];

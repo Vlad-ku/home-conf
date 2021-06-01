@@ -1,6 +1,7 @@
 /*
 !/.config
 /.config/*
+!/.conky
 
 !/.gitignore
 !/.home-conf

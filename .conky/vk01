@@ -1,0 +1,68 @@
+conky.config = {
+	background = yes,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	temperature_unit = 'celsius',
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+	gap_x = 10,
+	gap_y = 25,
+	minimum_width = 270,
+	maximum_width = 270,
+	own_window = true,
+	own_window_class = 'conky',
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_type = 'desktop',
+	background = false,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	alignment = 'top_right',
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'DejaVu Sans:size=9',
+	xftalpha = 0.5,
+	uppercase = false,
+
+	default_color = 'white',
+        color1 = 'yellow',
+        color2 = 'green',
+	color3 = "red",
+};
+
+conky.text = [[
+${voffset 10}
+${font sf pro display:style=heavy:pixelsize=30}${alignc}${time %T}${voffset -10}
+${font sf pro display:style=bold:pixelsize=17}${time %A}${alignr}${time %d.%m.%Y}
+${hr 1}
+${goto 10}${voffset 4}${font sf pro display:style=regular:size=12}Дистрибутив${alignr}${color1}ARCH Linux   ${machine} ${color}
+${goto 10}${voffset 4}Ядро${alignr}${color1}${kernel} ${color}
+${goto 10}${voffset 4}Время работы${alignr}${color1}${uptime_short} ${color}
+${goto 10}${voffset 4}Процессы ${alignr}${color1}${processes} ${color}
+${stippled_hr 5 1}${color}
+   RAM    ${color1}${alignr}$mem${color} / $memmax ${color1}($memperc%) ${color}
+   SWAP ${color1}${alignr}${swap}${color}
+   CPU ${alignr}${color1}${cpu cpu0}% ${color} | ${color3}${acpitemp} С ${color}
+   / ${color1}${alignr}${fs_free /}${color} / ${fs_size /} 
+   /home ${color1}${alignr}${fs_free /home}${color} / ${fs_size /home} 
+${stippled_hr 5 1}${color}
+${goto 10}${voffset 4}Up:${alignr}${color1}${upspeed wlp3s0} kb/s ${color}
+${goto 10}${voffset 4}Down:${alignr}${color1}${downspeed wlp3s0} kb/s ${color}
+${goto 10}${voffset 4}Upload: ${color1}${alignr}${totalup wlp3s0} ${color}
+${goto 10}${voffset 4}Download: ${color1}${alignr}${totaldown wlp3s0} ${color}
+${goto 10}${voffset 4}Local IP: ${color1}${alignr}${addr wlp3s0} ${color}
+${goto 10}${voffset 4}Public IP: ${color1}${alignr}${execi 60 wget -O - -q icanhazip.com} ${color}
+${hr 1}
+]];
