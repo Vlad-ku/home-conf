@@ -58,8 +58,8 @@ ${color}SWAP            ${alignr}${swapmax}
 ${swapbar}
 
 ${color}DiskIO          ${alignr}${color1}${diskio} ${diskiograph 8,100 1783B4 FFFFFF -l}
-${color}Up:             ${alignr}${color1}${upspeed wlp3s0} ${color} ${upspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
-${color}Down:           ${alignr}${color1}${downspeed wlp3s0} ${color} ${downspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
+${color}Up:             ${alignr}${color1}${upspeed wlp3s0} ${upspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
+${color}Down:           ${alignr}${color1}${downspeed wlp3s0} ${downspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
 ${color}Upload:         ${alignr}${color1}${totalup wlp3s0}
 ${color}Download:       ${alignr}${color1}${totaldown wlp3s0}
 ${color}Local IP:       ${alignr}${color1}${addr wlp3s0}
