@@ -12,8 +12,8 @@ conky.config = {
 
 	gap_x = 30,
 	gap_y = 30,
-	minimum_width = 300,
-	maximum_width = 300,
+	minimum_width = 320,
+	maximum_width = 320,
 	own_window = true,
 	own_window_class = 'conky',
 	own_window_argb_visual = true,
@@ -32,7 +32,6 @@ conky.config = {
 
 	override_utf8_locale = true,
 	use_xft = true,
-	font = 'DejaVu Sans:size=9',
 	xftalpha = 0.5,
 	uppercase = false,
 
@@ -45,20 +44,25 @@ conky.config = {
 conky.text = [[
 ${alignc}${time %T}
 ${time %A}${alignr}${time %Y-%m-%d}
-${hr 1}
-Ядро            ${alignr}${color1}${kernel}${color}
-Время работы    ${alignr}${color1}${uptime_short}${color}
-Процессы        ${alignr}${color1}${processes}${color}
-${hr 1}
-  RAM           ${alignr}${color1}$mem${color} / $memmax ${color1}($memperc%)${color}
-  SWAP          ${alignr}${color1}${swap}${color}
-  CPU           ${alignr}${color1}${cpu cpu0}% ${color} | ${color3}${acpitemp} С${color}
-  /             ${alignr}${color1}${fs_free /}${color} / ${fs_size /}
-${hr 1}
-Up:             ${alignr}${color1}${upspeed wlp3s0} kb/s ${color} ${upspeedgraph wlp3s0 8,55 1783B4 FFFFFF}
-Down:           ${alignr}${color1}${downspeed wlp3s0} kb/s ${color} ${downspeedgraph wlp3s0 8,55 1783B4 FFFFFF}
-Upload:         ${alignr}${color1}${totalup wlp3s0}${color}
-Download:       ${alignr}${color1}${totaldown wlp3s0}${color}
-Local IP:       ${alignr}${color1}${addr wlp3s0}${color}
-Public IP:      ${alignr}${color1}${execi 60 curl http://ip-api.com/json | jq '.countryCode+" . "+.region+" . "+.query' -r}${color}
+${color}${hr 1}
+${color}Ядро            ${alignr}${color1}${kernel}
+${color}Время работы    ${alignr}${color1}${uptime_short}
+${color}Процессы        ${alignr}${color1}${processes}
+
+${color}CPU             ${alignr}${color1}${cpu}% ${cpugraph 8,100 1783B4 FFFFFF -l}
+${cpubar}
+
+${color}RAM             ${alignr}${color1}${memperc}% ${memgraph 8,100 1783B4 FFFFFF -l}
+${membar}
+
+${color}SWAP            ${alignr}${swapmax}
+${swapbar}
+
+${color}DiskIO          ${alignr}${color1}${diskio} ${diskiograph 8,100 1783B4 FFFFFF -l}
+${color}Up:             ${alignr}${color1}${upspeed wlp3s0} ${color} ${upspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
+${color}Down:           ${alignr}${color1}${downspeed wlp3s0} ${color} ${downspeedgraph wlp3s0 8,100 1783B4 FFFFFF -l}
+${color}Upload:         ${alignr}${color1}${totalup wlp3s0}
+${color}Download:       ${alignr}${color1}${totaldown wlp3s0}
+${color}Local IP:       ${alignr}${color1}${addr wlp3s0}
+${color}Public IP:      ${alignr}${color1}${execi 60 curl http://ip-api.com/json | jq '.countryCode+" . "+.region+" . "+.query' -r}
 ]];
