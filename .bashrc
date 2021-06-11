@@ -71,8 +71,6 @@ mypass-browser() {
     python3 /mnt/enote/00_FILES/PASS/scripts/mypass-browser.py
 }
 mytg() {
-    curl \
-        --data-urlencode "value1=$1" \
-        "https://maker.ifttt.com/trigger/shell/with/key/bxXRMSLxeTXqTGAqC3flfe" &> /dev/null
+    curl -X POST "https://api.telegram.org/bot1617957749:AAHEef2zmSzNzPRpxuniIm0FttbuR3FCQVE/sendMessage" -F chat_id="44802054" -F text="$1" &> /dev/null
 }
 #-------------------------------------------------------------------
