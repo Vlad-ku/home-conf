@@ -36,6 +36,7 @@ let g:ctrlsf_ignore_dir = [ 'bower_components', 'node_modules', 'package-lock.js
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }  " prettier - автоформатирование кода при сохранении
 " let g:prettier#autoformat_require_pragma = 0            " prettier - разрешить автоформатирование файлов, не содержащих комментарией с тегом @prettier
 " let g:prettier#autoformat_config_present = 1            " prettier - автоформатирование включено, только когда есть конфиг в проекте
+Plug 'sirtaj/vim-openscad'                              " SCAD синтаксис
 
 " BEGIN автокомплит
 Plug 'honza/vim-snippets'                               " комплект предзаготовленных сниппетов
