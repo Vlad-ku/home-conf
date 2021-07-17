@@ -11,10 +11,15 @@ def form(val):
 
 # запросы для разных валют
 def m(val):
-    val2usd = rq(val, 'usd')
-    val2rub = rq(val, 'rub')
-    rub2usd = val2rub / val2usd
-    return form(val2usd) + '  ' + form(val2rub) + '  ' + form(rub2usd)
+    if val == '':
+        return form(rq('ethereum', 'rub') / rq('ethereum', 'usd'))
+    else:
+        return form(rq(val, 'usd')) + '  ' + form(rq(val, 'rub'))
 
-print( m('ethereum') )
+print(' | '.join([
+    m('bitcoin'),
+    m('ethereum'),
+    m('polkadot'),
+    m('')
+]))
 #  print( m('binancecoin') )
